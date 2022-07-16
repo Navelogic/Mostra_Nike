@@ -19,6 +19,8 @@ a {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  -webkit-animation: introLoad 2s forwards;
+          animation: introLoad 2s forwards;
 }
 
 .logo {
@@ -33,7 +35,7 @@ nav {
   background: white;
   height: 100vh;
   width: 50%;
-  z-index: 2;
+  z-index: 999;
   text-transform: uppercase;
   transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
@@ -62,7 +64,7 @@ header {
   justify-content: space-between;
 }
 header svg {
-  width: 3em;
+  width: 2.3em;
   margin-top: -0.6em;
   cursor: pointer;
 }
@@ -80,12 +82,16 @@ h1 {
 section.hero {
   color: white;
   height: 90vh;
+  -webkit-animation: moveDown 1s ease-in-out forwards;
+          animation: moveDown 1s ease-in-out forwards;
+  opacity: 0;
 }
 section.hero .seta-para-baixo {
   stroke: white;
   position: absolute;
-  bottom: 2em;
+  bottom: 8em;
   width: 1em;
+  animation: moveArrow 1s alternate-reverse infinite;
 }
 section.hero .seta-para-baixo path {
   fill: white;
@@ -103,6 +109,10 @@ section.hero .seta-para-baixo path {
 }
 .mais-infos .desc {
   line-height: 1.5rem;
+}
+
+.open-nav {
+  transform: translateX(0%);
 }
 
 @media only screen and (min-width: 680px) {
@@ -132,7 +142,7 @@ section.hero .seta-para-baixo path {
   }
   nav ul a {
     color: white;
-    padding: 5em 1.5em;
+    padding: 0.5em 1.5em;
     font-size: 0.9rem;
   }
   nav ul a:hover {
@@ -157,6 +167,9 @@ section.hero .seta-para-baixo path {
     width: 40%;
     margin-bottom: 8em;
   }
+  section.hero .subtitulo {
+    margin-bottom: 3em;
+  }
   section.hero svg.seta-para-baixo {
     stroke: black;
     position: unset;
@@ -177,7 +190,7 @@ section.hero .seta-para-baixo path {
     text-align: right;
     width: 25em;
   }
-  .feature.leaft {
+  .feature.left {
     grid-template-areas: "left rigth";
   }
   img {
@@ -196,5 +209,63 @@ section.hero .seta-para-baixo path {
   }
   .feature {
     gap: 0;
+  }
+}
+@-webkit-keyframes introLoad {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@keyframes introLoad {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    -webkit-clip-path: polygon(0);
+            clip-path: polygon(0);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    -webkit-clip-path: polygon(0);
+            clip-path: polygon(0);
+  }
+}
+@-webkit-keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    -webkit-clip-path: polygon(0);
+            clip-path: polygon(0);
+    opacity: 1;
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    -webkit-clip-path: polygon(0);
+            clip-path: polygon(0);
+    opacity: 1;
   }
 }/*# sourceMappingURL=main.css.map */
